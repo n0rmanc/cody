@@ -62,6 +62,16 @@ RSpec.describe ReceiveIssueCommentEvent do
               expect(pr.completed_reviews).to include(sender)
             end
           end
+
+          context "and they approve with a literal emoji" do
+            let(:comment) { "👍" }
+
+            it "moves them into the completed_reviews list" do
+              pr.reload
+              expect(pr.pending_reviews).to_not include(reviewer)
+              expect(pr.completed_reviews).to include(sender)
+            end
+          end
         end
       end
     end

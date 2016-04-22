@@ -75,6 +75,10 @@ class ReceiveIssueCommentEvent
     phrases = %w(
       lgtm
       looks\s+good(?:\s+to\s+me)?
+      👍
+      🆗
+      🚀
+      💯
     )
 
     # emojis need some extra processing so we handle them separately
