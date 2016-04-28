@@ -21,6 +21,7 @@ class WebhooksController < ApplicationController
     end
 
     if body["action"] == "opened" || body["action"] == "synchronize"
+      Rails.logger.info "Action=====#{body["action"]}"
       ReceivePullRequestEvent.perform_async(body.slice("action", "number", "pull_request", "repository"))
     end
 
