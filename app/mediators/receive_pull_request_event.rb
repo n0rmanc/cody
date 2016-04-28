@@ -13,6 +13,7 @@ class ReceivePullRequestEvent
   end
 
   def on_opened
+    Rails.logger.debug "perform_async============"
     CreateOrUpdatePullRequest.new.perform(@payload["pull_request"])
   end
 
